@@ -9,8 +9,8 @@ config = { "postgis": {} }
 config["postgis"]["host"]     = ""
 config["postgis"]["port"]     = ""
 config["postgis"]["dbname"]   = "osm"
-config["postgis"]["user"]     = ""
-config["postgis"]["password"] = ""
+config["postgis"]["user"]     = "osm"
+config["postgis"]["password"] = "osm"
 
 # Increase performance if you are only rendering a particular area by
 # specifying a bounding box to restrict queries. Format is "XMIN,YMIN,XMAX,YMAX"
