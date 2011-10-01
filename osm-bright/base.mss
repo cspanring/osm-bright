@@ -19,23 +19,25 @@
 #landuse_gen0[zoom>3][zoom<=9],
 #landuse_gen1[zoom>9][zoom<=12],
 #landuse[zoom>12] {
-  [type='cemetery']      { polygon-fill: @cemetery; }
-  [type='college']       { polygon-fill: @school; }
-  [type='commercial']    { polygon-fill: @industrial; }
-  [type='forest']        { polygon-fill: @forest; }
-  [type='golf_course']   { polygon-fill: @park; }
-  [type='hospital']      { polygon-fill: @hospital; }
-  [type='industrial']    { polygon-fill: @industrial; }
-  [type='park']          { polygon-fill: @park; }
-  [type='parking']       { polygon-fill: @parking; }
-  [type='pedestrian']    { polygon-fill: @pedestrian_fill; }
-  [type='pitch']         { polygon-fill: @sports; }
-  [type='residential']   { polygon-fill: @residential; }
-  [type='school']        { polygon-fill: @school; }
-  [type='sports_center'] { polygon-fill: @sports; }
-  [type='stadium']       { polygon-fill: @sports; }
-  [type='university']    { polygon-fill: @school; }
-  [type='wood']          { polygon-fill: @forest; }
+  [type='cemetery']          { polygon-fill: @cemetery; }
+  [type='college']           { polygon-fill: @school; }
+  [type='commercial']        { polygon-fill: @industrial; }
+  [type='forest']            { polygon-fill: @forest; }
+  [type='golf_course']       { polygon-fill: @park; }
+  [type='hospital']          { polygon-fill: @hospital; }
+  [type='industrial']        { polygon-fill: @industrial; }
+  [type='nature_reserve'] { polygon-fill: @park; }
+  [type='park']              { polygon-fill: @park; }
+  [type='parking']           { polygon-fill: @parking; }
+  [type='pedestrian']        { polygon-fill: @pedestrian_fill; }
+  [type='pitch']             { polygon-fill: @sports; }
+  [type='recreation_ground'] { polygon-fill: @park; }
+  [type='residential']       { polygon-fill: @residential; }
+  [type='school']            { polygon-fill: @school; }
+  [type='sports_center']     { polygon-fill: @sports; }
+  [type='stadium']           { polygon-fill: @sports; }
+  [type='university']        { polygon-fill: @school; }
+  [type='wood']              { polygon-fill: @forest; }
 }
 
 #landuse_overlays[type='nature_reserve'][zoom>3] {
