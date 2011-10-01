@@ -47,6 +47,7 @@ A basic ImpOSM import command looks like:
     imposm --read --write --deploy-production-tables -U <user> -d <db> <data.osm.pbf>
 
 See `imposm --help` or the [online documentation][3] for more details.
+Imposm's default key mapping can be found in [imposm/defaultmapping.py][4]
 
 Note that if you use a custom database prefix or want to see the style on a
 tables that have not been "deployed to production" (ie. have an `osm_new_`
@@ -56,6 +57,7 @@ reflect this.
 [2]: http://wiki.openstreetmap.org/wiki/Planet
 [ImpOSM]: http://imposm.org/
 [3]: http://imposm.org/
+[4]: https://bitbucket.org/olt/imposm/src/0cebc589bf46/imposm/defaultmapping.py
 
 ### 3. Run configure.py ###
 
