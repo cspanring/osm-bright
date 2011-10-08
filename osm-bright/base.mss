@@ -11,7 +11,9 @@
 
 /* == 1. LANDUSE & LANDCOVER ======================================== */
 
-#land {
+#land[zoom>=0][zoom<6],
+#shoreline_300[zoom>=6][zoom<10],
+#processed_p[zoom>=10] {
   polygon-fill: @land;
   polygon-gamma: 0.75;
 }
@@ -40,15 +42,18 @@
   [type='wood']              { polygon-fill: @forest; }
 }
 
-#landuse_overlays[type='nature_reserve'][zoom>3] {
-  line-color: #396;
-  line-opacity:  0.25;
-  [zoom=4] { line-width: 0.4; }
-  [zoom=5] { line-width: 0.6; }
-  [zoom=6] { line-width: 0.8; }
-  [zoom=7] { line-width: 1.0; }
-  [zoom=8] { line-width: 1.5; }
-  [zoom=9] { line-width: 2.0; }
+#landuse_overlays[type='nature_reserve'][zoom>6] {
+  line-color: darken(@forest,25%);
+  line-opacity:  0.3;
+  line-dasharray: 1,1;
+  polygon-fill: darken(@forest,25%);
+  polygon-opacity: 0.1;
+  [zoom=7] { line-width: 0.4; }
+  [zoom=8] { line-width: 0.6; }
+  [zoom=9] { line-width: 0.8; }
+  [zoom=10] { line-width: 1.0; }
+  [zoom=11] { line-width: 1.5; }
+  [zoom>=12] { line-width: 2.0; }
 }
 
 #transport_areas[zoom>3] {
