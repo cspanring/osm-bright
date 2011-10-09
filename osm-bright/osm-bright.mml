@@ -6,9 +6,9 @@
     42.702
   ],
   "center": [
-    -71.06592178344721,
-    42.33033769872863,
-    13
+    -71.0673755407333,
+    42.36089650706597,
+    16
   ],
   "format": "png",
   "interactivity": false,
@@ -30,6 +30,26 @@
       "class": "",
       "Datasource": {
         "file": "/Users/span/Documents/MapBox/data/land_northeast.shp"
+      }
+    },
+    {
+      "geometry": "polygon",
+      "name": "processed_p",
+      "id": "processed_p",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/span/Documents/MapBox/data/land_northeast.shp"
+      }
+    },
+    {
+      "geometry": "polygon",
+      "name": "shoreline_300",
+      "id": "shoreline_300",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "class": "",
+      "Datasource": {
+        "file": "http://tilemill-data.s3.amazonaws.com/osm/shoreline_300.zip"
       }
     },
     {
@@ -83,7 +103,9 @@
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
-        "user": "osm"
+        "user": "osm",
+        "id": "landuse",
+        "project": "osm-bright"
       }
     },
     {
@@ -173,7 +195,9 @@
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
-        "user": "osm"
+        "user": "osm",
+        "id": "landuse_overlays",
+        "project": "osm-bright"
       }
     },
     {
@@ -384,6 +408,26 @@
       "class": "",
       "Datasource": {
         "table": "(select geometry, type, name, z_order, population\nfrom osm_places\norder by z_order, population desc\n) as places",
+        "key_field": "",
+        "geometry_field": "",
+        "extent": "",
+        "type": "postgis",
+        "dbname": "osm",
+        "host": "localhost",
+        "port": "5432",
+        "user": "osm",
+        "id": "place",
+        "project": "osm-bright"
+      }
+    },
+    {
+      "geometry": "point",
+      "name": "amenity",
+      "id": "amenity",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "class": "amenity",
+      "Datasource": {
+        "table": "(select geometry, type, name\nfrom osm_amenities\n) as amenity",
         "key_field": "",
         "geometry_field": "",
         "extent": "",
