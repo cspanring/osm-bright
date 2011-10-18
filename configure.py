@@ -6,8 +6,8 @@ config = { "postgis": {} }
 
 # PostGIS connection setup
 # Leave empty for Mapnik defaults. The only required parameter is dbname.
-config["postgis"]["host"]     = ""
-config["postgis"]["port"]     = ""
+config["postgis"]["host"]     = "localhost"
+config["postgis"]["port"]     = "5432"
 config["postgis"]["dbname"]   = "osm"
 config["postgis"]["user"]     = "osm"
 config["postgis"]["password"] = "osm"
@@ -26,8 +26,8 @@ config["postgis"]["extent"] = "-20037508.34 -20037508.34 20037508.34 20037508.34
 # infrequently. The latest versions can be downloaded from osm.org:
 # - http://tile.openstreetmap.org/processed_p.tar.bz2
 # - http://tile.openstreetmap.org/shoreline_300.tar.bz2
-processed_p = "http://tilemill-data.s3.amazonaws.com/osm/processed_p.zip"
-shoreline_300 = "http://tilemill-data.s3.amazonaws.com/osm/shoreline_300.zip"
+processed_p = "/home/planner/processed_p.shp"
+shoreline_300 = "/home/planner/shoreline_300.shp"
 
 ################################################################################
 
