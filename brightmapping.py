@@ -195,7 +195,7 @@ railways = LineStrings(
     fields = (
         ('tunnel', Bool()),
         ('bridge', Bool()),
-        # ('ref', String()),
+        ('colour', String()),
         ('z_order', WayZOrder()),
     ),
     mapping = {
