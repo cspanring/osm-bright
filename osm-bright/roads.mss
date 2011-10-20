@@ -524,6 +524,10 @@
   [tunnel=1] { line-opacity:0.5; }
   [zoom>9] { line-width:1; }
 }
+/*[type='subway']#rail[zoom>9]{
+line-color:#ff0000;
+line-width:2;
+  }*/
 
 /* == 5. AEROWAYS ================================================= */
 
