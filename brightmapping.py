@@ -198,7 +198,7 @@ railways = LineStrings(
         ('colour', String()),
         ('z_order', WayZOrder()),
     ),
-    mapping = {
+  mapping = {
         'railway': (
             'rail',
             'tram',
@@ -208,7 +208,12 @@ railways = LineStrings(
             'preserved',
             'funicular',
             'monorail',
-    )}
+    ),
+        'route': (
+'subway',
+'light_rail',
+),
+}
 )
 
 waterways = LineStrings(
