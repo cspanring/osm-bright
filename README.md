@@ -57,24 +57,22 @@ sudo pip install imposm
 
 # once you have it installed run 
 imposm-psqldb > create-db.sh #note the imposm site mis-spells this
-# if your using postgres 9.1 this command won't work, use the file impism9-1.sh
-# you may need to run sudo chmod 775 impism9-1.sh first then:
+if your using postgres 9.1 this command won't work, use the file impism9-1.sh
+you may need to run sudo chmod 775 impism9-1.sh first then:
 sudo su postgres #switch over to the postgres user
 sh ./create-db.sh #or sh ./osm-bright/impism9-1.sh
-# if you don't get any errors then 
+ if you don't get any errors then 
 exit
 to import data you can run 
 imposm --read --overwrite-cache --write --optimize --deploy-production-tables -m osm-bright/brightmapping.py -d osm us-northeast.osm.pbf
-# to break that down: 
-# --read reads the data and puts it into the cache
-# --write takes the data in the cache and imports it into the database
-# --optimize cleans stuff up
-# --deploy-production-tables removes the new_ table prefixes, I usually don't do this now and instead run
-# imposm --deploy-prodution-tables -d osm
-# after I make sure it got into the database alright
-# -m osm-bright/brightmapping.py tells it to use our custom mapping file
-# -d osm tells it the name of the database, if you didn't use the defaults change this
-# and last is the name of the file
+to break that down: 
+ --read reads the data and puts it into the cache
+ --write takes the data in the cache and imports it into the database
+ --optimize cleans stuff up
+ --deploy-production-tables removes the new_ table prefixes, I usually don't do this now and instead run
+ imposm --deploy-prodution-tables -d osm
+ after I make sure it got into the database alright# -m osm-bright/brightmapping.py tells it to use our custom mapping file# -d osm tells it the name of the database, if you didn't use the defaults change this
+ and last is the name of the file
 
 
 ### 3. Run configure.py ###
