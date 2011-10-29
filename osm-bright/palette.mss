@@ -38,7 +38,7 @@
 @cemetery:          #d1d1d1;
 @forest:            #c7e6a8;
 @grass:             lighten(@forest,5);
-@hospital:          rgb(229,198,195);
+@hospital:          #e6c6c3;
 @industrial:        #e8e8e8;
 @park:              lighten(@forest,10);
 @parking:           #eee;
@@ -101,5 +101,9 @@
 
 @country_text:      #435;
 @country_halo:      @default_halo;
+
+/* ---- Bike & Ped ------------------------------------------------- */
+
+@walking: #d88c87;
 
 /* ****************************************************************** */
