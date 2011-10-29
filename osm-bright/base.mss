@@ -201,13 +201,43 @@ Map { background-color: @water; }
 }
 
 /* == 7. ADMINISTRATIVE BOUNDARIES ================================== */
-
-#admin[admin_level=2][zoom>1] {
+#admin[admin_level<9][zoom>8] {
   line-color:@admin_2;
-  line-width:0.5;
-  [zoom=2] { line-opacity: 0.25; }
-  [zoom=3] { line-opacity: 0.3; }
-  [zoom=4] { line-opacity: 0.4; }
+  line-width:1;
+   line-opacity: 0.4;
+  line-dasharray:4,4;
 }
 
+#admin[admin_level<5][zoom=2] {
+  line-color:@admin_2;
+  line-width:1.5;
+  line-opacity: 0.25; }
+  #admin[admin_level<3][zoom=3] {
+  line-color:@admin_2;
+  line-width:1.5;
+  
+  line-opacity: 0.3; }
+ #admin[admin_level<5][zoom=4] {
+  line-color:@admin_2;
+  line-width:1.5;
+ line-opacity: 0.4; 
+}
+#admin[admin_level<5][zoom=5] {
+  line-color:@admin_2;
+  line-width:1.5;
+  
+}
+#admin[admin_level<5][zoom=6] {
+  line-color:@admin_2;
+  line-width:1.5;
+  
+}#admin[admin_level<7][zoom=7] {
+  line-color:@admin_2;
+  line-width:1.5;
+  
+}#admin[admin_level<7][zoom=8] {
+  line-color:@admin_2;
+  line-width:1.5;
+  
+}
 /* ****************************************************************** */

@@ -26,6 +26,10 @@ full information on how to do this
 [PostGIS]: http://postgis.refractions.net/
 [1]: http://postgis.refractions.net/documentation/manual-1.5/
 
+for 8.4 (ubuntu<=11.04) use the command
+sudo apt-get install postgresql-8.4-postgis postgresql-contrib-8.4 postgis
+
+
 ### 2. Import OpenStreetMap data ###
 
 You will need an OSM database extract in one of the following formats:
@@ -33,6 +37,8 @@ You will need an OSM database extract in one of the following formats:
 - .osm.pbf (binary; smallest & fastest)
 - .osm.bz2 (compressed xml)
 - .osm (xml)
+
+this tutorial will assume your using the us-northeast.pbf which you can grab from <http://download.geofabrik.de/osm> (in north-america folder)
 
 You can find appropriate data extracts for a variety of regions at
 <http://download.geofabrik.de/osm> or <http://downloads.cloudmade.com>. See
@@ -42,22 +48,32 @@ downloads.
 OSM Bright requires a PostGIS database imported with [ImpOSM][]. Support for
 OSM2PGSQL is planned but not yet implemented.
 
-A basic ImpOSM import command looks like:
+to install imposm on ubuntu 11.04
+sudo apt-get install build-essential python-dev protobuf-compiler \
+                      libprotobuf-dev libtokyocabinet-dev python-psycopg2 \
+                      libgeos-c1
+sudo apt-get install python-pip
+sudo pip install imposm
 
-    imposm --read --write --deploy-production-tables -U <user> -d <db> <data.osm.pbf>
+# once you have it installed run 
+imposm-psqldb > create-db.sh #note the imposm site mis-spells this
+if your using postgres 9.1 this command won't work, use the file impism9-1.sh
+you may need to run sudo chmod 775 impism9-1.sh first then:
+sudo su postgres #switch over to the postgres user
+sh ./create-db.sh #or sh ./osm-bright/impism9-1.sh
+ if you don't get any errors then 
+exit
+to import data you can run 
+imposm --read --overwrite-cache --write --optimize --deploy-production-tables -m osm-bright/brightmapping.py -d osm us-northeast.osm.pbf
+to break that down: 
+ --read reads the data and puts it into the cache
+ --write takes the data in the cache and imports it into the database
+ --optimize cleans stuff up
+ --deploy-production-tables removes the new_ table prefixes, I usually don't do this now and instead run
+ imposm --deploy-prodution-tables -d osm
+ after I make sure it got into the database alright# -m osm-bright/brightmapping.py tells it to use our custom mapping file# -d osm tells it the name of the database, if you didn't use the defaults change this
+ and last is the name of the file
 
-See `imposm --help` or the [online documentation][3] for more details.
-Imposm's default key mapping can be found in [imposm/defaultmapping.py][4]
-
-Note that if you use a custom database prefix or want to see the style on a
-tables that have not been "deployed to production" (ie. have an `osm_new_`
-prefix) you will have to manually update the SQL queries in the MML file to
-reflect this.
-
-[2]: http://wiki.openstreetmap.org/wiki/Planet
-[ImpOSM]: http://imposm.org/
-[3]: http://imposm.org/
-[4]: https://bitbucket.org/olt/imposm/src/0cebc589bf46/imposm/defaultmapping.py
 
 ### 3. Run configure.py ###
 
